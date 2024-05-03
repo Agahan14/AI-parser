@@ -7,7 +7,7 @@ This Python script is used to extract specific information about investors from 
 This script depends on the following Python libraries:
 
 - `langchain_core`
-- `scrape` (a custom module)
+- `webscrape` (a custom module)
 
 ## How it Works
 
@@ -22,7 +22,9 @@ The information extracted includes:
 
 The function uses the `Ollama` model from the `langchain_core` library to perform the extraction. The model is given a prompt that specifies what information to extract. The prompt is defined using a `PromptTemplate` from the `langchain_core` library.
 
-The HTML content of the page is fetched using the `extract_html_from_url(url: str)` function from the `scrape` module. This function is not defined in `parse.py`, so it must be imported from elsewhere.
+The model used can be changed by modifying the `model` parameter in the `Ollama` constructor. For example, you can change it from `"llama2"` to `"llama3"` to use a different version of the model.
+
+The HTML content of the page is fetched using the `extract_html_from_url(url: str)` function from the `webscrape` module. This function is not defined in `parse.py`, so it must be imported from elsewhere.
 
 ## Usage
 
@@ -32,5 +34,5 @@ To use the `extract_company_info(url: str)` function, import it in your Python s
 from parse import extract_company_info
 
 url = "http://example.com"  # Replace with your actual URL
-extract_company_info(url)
+info = extract_company_info(url)
 ```
