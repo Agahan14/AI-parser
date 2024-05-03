@@ -4,7 +4,7 @@ from langchain.prompts import PromptTemplate
 from langchain_community.llms import Ollama
 from langchain_core.output_parsers import StrOutputParser
 
-from scrape import extract_html_from_url
+from webscrape import extract_html_from_url
 
 
 def extract_company_info(url: str):
